@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+client/node_modules/
+
+# Build output
+dist/
+client/dist/
+
+# Python environment and caches
+.venv/
+server/.venv/
+__pycache__/
+*.py[cod]
+
+# Logs and local runtime files
+*.log
+vite-*.log
+*.local
+
+# Local database
+*.db
+
+# Training data
+server/dataset/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store

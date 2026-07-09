@@ -1,0 +1,215 @@
+.camera-capture {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-surface-border);
+}
+
+.camera-capture__viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #000;
+  overflow: hidden;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.camera-capture__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-capture__video--hidden {
+  display: none;
+}
+
+.camera-capture__preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: scaleIn var(--duration-normal) var(--ease-out);
+}
+
+.camera-capture__canvas {
+  display: none;
+}
+
+/* ── Scanning Overlay ── */
+.camera-capture__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  pointer-events: none;
+}
+
+.camera-capture__frame {
+  position: relative;
+  width: 70%;
+  max-width: 320px;
+  aspect-ratio: 1;
+}
+
+.camera-capture__corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: var(--color-primary);
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.8;
+}
+
+.camera-capture__corner--tl {
+  top: 0;
+  left: 0;
+  border-top-width: 3px;
+  border-left-width: 3px;
+  border-top-left-radius: 8px;
+}
+
+.camera-capture__corner--tr {
+  top: 0;
+  right: 0;
+  border-top-width: 3px;
+  border-right-width: 3px;
+  border-top-right-radius: 8px;
+}
+
+.camera-capture__corner--bl {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 3px;
+  border-left-width: 3px;
+  border-bottom-left-radius: 8px;
+}
+
+.camera-capture__corner--br {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 3px;
+  border-right-width: 3px;
+  border-bottom-right-radius: 8px;
+}
+
+.camera-capture__hint {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.5);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ── Error & Loading ── */
+.camera-capture__error,
+.camera-capture__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.camera-capture__error {
+  color: var(--color-danger);
+}
+
+.camera-capture__error p {
+  font-size: var(--text-sm);
+  max-width: 280px;
+  line-height: var(--leading-relaxed);
+}
+
+.camera-capture__loading-ring {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(45, 65, 55, 0.3);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.camera-capture__loading span {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+/* ── Controls ── */
+.camera-capture__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-secondary);
+}
+
+.camera-capture__shutter {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid var(--color-text-secondary);
+  background: transparent;
+  padding: 4px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.camera-capture__shutter:hover {
+  border-color: var(--color-primary-light);
+  transform: scale(1.05);
+}
+
+.camera-capture__shutter:active {
+  transform: scale(0.95);
+}
+
+.camera-capture__shutter:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.camera-capture__shutter-inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--color-text-secondary);
+  transition: background var(--duration-fast) var(--ease-smooth);
+}
+
+.camera-capture__shutter:hover .camera-capture__shutter-inner {
+  background: var(--color-primary-light);
+}
+
+.camera-capture__btn-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .camera-capture__viewport {
+    aspect-ratio: 4 / 3;
+  }
+
+  .camera-capture__frame {
+    width: 80%;
+  }
+}

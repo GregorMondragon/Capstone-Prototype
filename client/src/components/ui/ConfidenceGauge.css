@@ -1,0 +1,47 @@
+.confidence-gauge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confidence-gauge__svg {
+  position: absolute;
+  inset: 0;
+}
+
+.confidence-gauge__ring {
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.confidence-gauge__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.confidence-gauge__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+}
+
+.confidence-gauge__percent {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  opacity: 0.7;
+  margin-left: 1px;
+}
+
+.confidence-gauge__label {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  margin-top: var(--space-1);
+  font-weight: 500;
+}

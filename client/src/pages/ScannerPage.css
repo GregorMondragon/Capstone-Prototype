@@ -1,0 +1,144 @@
+.scanner-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ── Controls ── */
+.scanner-page__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.scanner-page__mode-toggle {
+  display: flex;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 2px;
+}
+
+.scanner-page__mode-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.scanner-page__mode-btn:hover {
+  color: var(--color-text-secondary);
+}
+
+.scanner-page__mode-btn--active {
+  background: var(--color-primary-muted);
+  color: var(--color-primary-light);
+  font-weight: 600;
+}
+
+/* ── Camera Modal ── */
+.scanner-page__camera-modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.scanner-page__camera-wrapper {
+  width: 100%;
+  max-width: 640px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+/* ── Upload ── */
+.scanner-page__upload {
+  width: 100%;
+}
+
+/* ── Scan Action ── */
+.scanner-page__action {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-2) 0;
+}
+
+.scanner-page__scan-btn {
+  min-width: 220px;
+  padding: var(--space-4) var(--space-10);
+  font-size: var(--text-base);
+}
+
+/* ── Loading ── */
+.scanner-page__loading {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-8) 0;
+}
+
+/* ── Results ── */
+.scanner-page__results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.scanner-page__results-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .scanner-page {
+    padding: var(--space-6) var(--space-4);
+    gap: var(--space-4);
+  }
+
+  .scanner-page__controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .scanner-page__mode-toggle {
+    width: 100%;
+  }
+
+  .scanner-page__mode-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .scanner-page__camera-modal {
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .scanner-page__camera-wrapper {
+    max-width: 100%;
+    border-radius: 0;
+    height: 100vh;
+  }
+}
