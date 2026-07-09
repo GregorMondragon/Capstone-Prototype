@@ -30,7 +30,20 @@ git clone https://github.com/GregorMondragon/Capstone-Prototype.git
 cd Capstone-Prototype
 ```
 
-### 2. Run the Backend (Python/FastAPI)
+### 2. Install Dependencies
+#### Backend
+```bash
+cd server
+pip install -r requirements.txt
+```
+
+#### Frontend
+```bash
+cd ../client
+npm install
+```
+
+### 3. Run the Backend (Python/FastAPI)
 ```bash
 cd server
 pip install -r requirements.txt
@@ -38,20 +51,19 @@ uvicorn app.main:app --reload
 ```
 The backend API will run at `http://localhost:8000`.
 
-### 3. Run the Frontend (React/Vite)
+### 4. Run the Frontend (React/Vite)
 Open a second terminal and run:
 ```bash
 cd client
-npm install
 npm run dev
 ```
 The frontend will run at `http://localhost:5173`.
 
-### 4. Access the Application
+### 5. Access the Application
 - Open your browser and go to `http://localhost:5173`
 - The frontend will communicate with the backend running at `http://localhost:8000`
 
-### 5. Optional: Train the Model
+### 6. Optional: Train the Model
 If you want to retrain the AI model with your own dataset:
 1. Place the dataset in `server/dataset/train` and `server/dataset/val`
 2. Run `python server/train.py`
