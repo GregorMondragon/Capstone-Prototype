@@ -16,30 +16,45 @@ A premium, full-stack AI-powered application for detecting and classifying disea
 - **Backend**: Python, FastAPI, SQLAlchemy, SQLite.
 - **ML Engine**: TensorFlow/Keras (MobileNetV2 architecture).
 
-## Setup & Run
+## How to Run
 
-### 1. Backend (Python/FastAPI)
+### Prerequisites
+Make sure you have the following installed on your computer:
+- Python 3.10+
+- Node.js 18+
+- npm
 
+### 1. Clone the Project
+```bash
+git clone https://github.com/GregorMondragon/Capstone-Prototype.git
+cd Capstone-Prototype
+```
+
+### 2. Run the Backend (Python/FastAPI)
 ```bash
 cd server
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
-*The backend API will run on `http://localhost:8000`*
+The backend API will run at `http://localhost:8000`.
 
-### 2. Frontend (React/Vite)
-
+### 3. Run the Frontend (React/Vite)
+Open a second terminal and run:
 ```bash
 cd client
 npm install
 npm run dev
 ```
-*The frontend will run on `http://localhost:5173`*
+The frontend will run at `http://localhost:5173`.
 
-### 3. Model Training (Optional)
-If you have the Kaggle Banana Leaf Disease dataset:
-1. Place the dataset in `server/dataset/train` and `server/dataset/val`.
+### 4. Access the Application
+- Open your browser and go to `http://localhost:5173`
+- The frontend will communicate with the backend running at `http://localhost:8000`
+
+### 5. Optional: Train the Model
+If you want to retrain the AI model with your own dataset:
+1. Place the dataset in `server/dataset/train` and `server/dataset/val`
 2. Run `python server/train.py`
-3. The newly trained model will automatically be saved to `server/app/ml/model/best_model.h5`.
+3. The trained model will be saved to `server/app/ml/model/best_model.pt`
 
-*Note: If no model is found in the `model` folder, the backend will gracefully fallback to a simulation mode so you can still test the UI interactions.*
+> Note: If no trained model is found, the backend can still run in a fallback mode for testing the UI.
